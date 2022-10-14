@@ -9,13 +9,13 @@ app.get("/", (req, res) => {
   res.json("Hello User!");
 });
 
-// 1. Get array of all subscribers from database
+// 1. Get an array of all subscribers from the database
 app.get("/subscribers", async (req, res) => {
   const subscribers = await subscriberModel.find().select("-__v");
   res.json(subscribers);
 });
 
-// 2. Get array of subscriber's name and subscribed channel from database
+// 2. Get an array of subscriber's name and subscribed channel from the database
 app.get("/subscribers/names", async (req, res) => {
   const subscribers = await subscriberModel
     .find()
@@ -23,7 +23,7 @@ app.get("/subscribers/names", async (req, res) => {
   res.json(subscribers);
 });
 
-// 3. Get a particular subscriber from database using _id
+// 3. Get a particular subscriber from the database using _id
 app.get("/subscribers/:id", async (req, res) => {
   const id = req.params.id;
 
